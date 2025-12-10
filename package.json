@@ -1,0 +1,24 @@
+{
+  "name": "@jenilmistryhq/html-secure-sanitizer",
+  "version": "1.0.0",
+  "description": "A robust, latest-library-powered frontend HTML sanitizer.",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node test-automated.js"
+  },
+  "keywords": [
+    "sanitizer",
+    "xss",
+    "dompurify",
+    "frontend"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "dompurify": "^3.0.6",
+    "jsdom": "^22.1.0"
+  }
+}
