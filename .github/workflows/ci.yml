@@ -1,20 +1,41 @@
-name: Node.js CI
+name: html-secure-sanitizer CI Pipeline
 
-on: [push]
+# 1. WHEN to run the job
+on: 
+  push:
+    branches: [ "main", "master" ] # Trigger on pushes to the main development branches
+  pull_request:
+    branches: [ "main", "master" ] # Also trigger when someone proposes a change
 
+# 2. WHAT to run (the job)
 jobs:
   build:
+    # Use the latest Ubuntu environment for the runner
     runs-on: ubuntu-latest
-
+    
+    # Test across multiple critical Node.js versions
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [18.x, 20.x, 21.x]
 
+    # 3. STEPS of the job
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Checkout Code
+      # Downloads the code from the repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Node.js ${{ matrix.node-version }}
+      # Sets up the specific Node version for this run
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm test # This runs the 'node test-automated.js' script
+        # Caches node_modules to speed up subsequent runs
+        cache: 'npm' 
+        
+    - name: Install Dependencies
+      # Installs dompurify and jsdom (from package.json)
+      run: npm install
+      
+    - name: Run Automated Tests
+      # Executes the script defined in package.json/scripts/test
+      run: npm test
