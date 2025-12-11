@@ -1,6 +1,6 @@
 {
   "name": "@jenilmistryhq/html-secure-sanitizer",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A robust, latest-library-powered frontend HTML sanitizer.",
   "main": "index.js",
   "publishConfig": {
