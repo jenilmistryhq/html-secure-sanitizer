@@ -15,8 +15,8 @@
     "dompurify",
     "frontend"
   ],
-  "author": "Your Name",
-  "license": "ISC",
+  "author": "Jenil Mistry",
+  "license": "MIT License",
   "dependencies": {
     "dompurify": "^3.0.6",
     "jsdom": "^22.1.0"
