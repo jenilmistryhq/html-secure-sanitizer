@@ -1,7 +1,7 @@
 # Dependency directories
 node_modules/
 
-# Environment variables (Critical for security)
+# Environment variables
 .env
 .env.local
 .env.*.local
